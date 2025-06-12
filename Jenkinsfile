@@ -5,7 +5,7 @@ pipeline {
         stage('Clone') {
             steps {
                 echo 'Cloning repository...'
-                git url: 'https://github.com/iabarca-s/jenkins-practice.git', branch: 'main'
+                git url: 'https://github.com/iabarca-s/jenkins-practice.git', branch: 'master'
             }
         }
         stage('Build') {
