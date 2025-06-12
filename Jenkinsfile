@@ -1,7 +1,6 @@
 pipeline {
     agent any
     stages {
-
         stage('Clone') {
             steps {
                 echo 'Cloning repository...'
@@ -21,6 +20,11 @@ pipeline {
             }
         }
         stage('Deploy') {
+            when {
+                expression {
+                    currentBuild.result == null || currentBuild.result == 'SUCCESS'
+                }
+            }
             steps {
                 echo 'Deploying...'
                 sh 'echo "Deploying the application..."'
